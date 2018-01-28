@@ -1,0 +1,49 @@
+<div class="container">
+
+    <div class="page-content">
+        <h4>Angular is {{status}}</h4>
+        <h5>You're logged in as:</h5>
+        
+        Id: {{profile.id}}
+        <p/>
+        Username: {{profile.username}}
+        <p/>
+        Email: {{profile.email}}
+        <p/>
+        Full Name: {{profile.firstName}} {{profile.lastName}}
+        
+        <p/>
+        
+        <button name="Logout" ng-click="logout()">Logout</button>
+        
+       <div id="container" ng-show="interests" ng-init="init()">
+
+<button type="button" class="btn btn-default btn-md filter-label" ng-repeat="x in interests">
+	<span ng-if="x.type == 'user'">@</span>
+	<span ng-if="x.type == 'hashtag'">#</span>
+		<span ng-click="search(x)" >{{x.name}}</span> <span ng-click="delete(x.id)">
+		<i class="fa fa-times" aria-hidden="true">x</i>
+		</span>
+	</button>
+</div>
+
+<div>
+	<form method="post" class="form-inline" ng-submit="create()">
+		<div class="input-group-prepend ">
+			<select class="form-control col-md-2" id="interestTypeSelect"
+				ng-model="interestTypeSelect">
+				<option value="#" selected="selected">#</option>
+				<option value="@">@</option>
+			</select> 
+			<input type="text" class="form-control col-md-8" id="searchId"
+				ng-model="newInterest">
+			<button class="btn btn-primary col-md-2" style="max-width: initial" type="submit">Agregar</button>
+		</div>
+		<!-- 		<input type="text" id="searchId" ng-model="newInterest"/> -->
+	</form>
+	
+	<div id="tweet-container" ng-show="tweets">{{tweets}}</div>
+
+</div>
+    </div>
+</div>
