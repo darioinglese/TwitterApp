@@ -1,6 +1,7 @@
 package com.twitterapp.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -20,13 +21,13 @@ public class InterestController {
 	private Twitter twitter;
 
 	@RequestMapping(value = "/{hashTag}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public List<Tweet> getTweets(@PathVariable final String hashTag) {
-		return twitter.searchOperations().search(hashTag, 5).getTweets();
+	public List<String> getTweets(@PathVariable final String hashTag) {
+		return twitter.searchOperations().search(hashTag, 5).getTweets().stream().map(Tweet::getIdStr).collect(Collectors.toList());
 	}
 	
 	@RequestMapping(value = "/{user}/users", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public List<Tweet> getUserTweets(@PathVariable final String user) {
-		return twitter.timelineOperations().getUserTimeline(user);
+	public List<String> getUserTweets(@PathVariable final String user) {
+		return twitter.timelineOperations().getUserTimeline(user).stream().map(Tweet::getIdStr).collect(Collectors.toList());
 	}
 
 	

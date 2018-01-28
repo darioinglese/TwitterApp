@@ -41,9 +41,8 @@
 		</div>
 		<!-- 		<input type="text" id="searchId" ng-model="newInterest"/> -->
 	</form>
+	<div id="tweetContainer">
+		<div ng-repeat="x in tweets" class="tweet" id={{x}}></div>
+	</div>
 	
-	<div id="tweet-container" ng-show="tweets">{{tweets}}</div>
-
-</div>
-    </div>
 </div>
