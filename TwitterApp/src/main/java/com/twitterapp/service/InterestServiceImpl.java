@@ -6,7 +6,8 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.twitter.api.Tweet;
 import org.springframework.social.twitter.api.Twitter;
-
+import org.springframework.stereotype.Service;
+@Service
 public class InterestServiceImpl implements InterestService {
 	
 	@Autowired

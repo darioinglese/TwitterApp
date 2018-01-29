@@ -2,34 +2,23 @@
 
 appControllers.controller('MainController', ['$rootScope', '$scope', '$http', 'authorization',
     function($rootScope, $scope, $http, authorization) {
-        $scope.status = 'running...';
         $scope.profile = authorization.profile;
-        $scope.isAdmin = authorization.hasRealmRole('admin')
-        $scope.isManager = authorization.hasRealmRole('manager')
-        
-        
-        $scope.getContracts = function() {
-        	$http.get("http://localhost:8000/api/contracts").success(function(data) {
-            	$scope.contracts = data;
-            });
-        }
         
         $scope.logout = function() {
         	authorization.logout();
         }
         
         $scope.init = function () {
-
             $http.get("/api/board/" + $scope.profile.username)
                 .then(function (response) {
                     console.log (response);
                     $scope.interests = response.data;
                 });    
-
         }
 
-    	$scope.create = function() {
+    	$scope.createInterest = function() {
     		var type = $scope.interestTypeSelect === '@' ? 'user' : 'hashtag';
+//    		var type = $scope.interestType === '@' ? 'user' : 'hashtag';
     		var interest = {
     			'type' : type,
     			'name' : $scope.newInterest

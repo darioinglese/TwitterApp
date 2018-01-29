@@ -1,49 +1,72 @@
-<div class="container">
-
-    <div class="page-content">
-        <h4>Angular is {{status}}</h4>
-        <h5>You're logged in as:</h5>
-        
-        Id: {{profile.id}}
-        <p/>
-        Username: {{profile.username}}
-        <p/>
-        Email: {{profile.email}}
-        <p/>
-        Full Name: {{profile.firstName}} {{profile.lastName}}
-        
-        <p/>
-        
-        <button name="Logout" ng-click="logout()">Logout</button>
-        
-       <div id="container" ng-show="interests" ng-init="init()">
-
-<button type="button" class="btn btn-default btn-md filter-label" ng-repeat="x in interests">
-	<span ng-if="x.type == 'user'">@</span>
-	<span ng-if="x.type == 'hashtag'">#</span>
-		<span ng-click="search(x)" >{{x.name}}</span> <span ng-click="delete(x.id)">
-		<i class="fa fa-times" aria-hidden="true">x</i>
-		</span>
-	</button>
-</div>
-
-<div>
-	<form method="post" class="form-inline" ng-submit="create()">
-		<div class="input-group-prepend ">
-			<select class="form-control col-md-2" id="interestTypeSelect"
-				ng-model="interestTypeSelect">
-				<option value="#" selected="selected">#</option>
-				<option value="@">@</option>
-			</select> 
-			<input type="text" class="form-control col-md-8" id="searchId"
-				ng-model="newInterest">
-			<button class="btn btn-primary col-md-2" style="max-width: initial" type="submit">Agregar</button>
-		</div>
-		<!-- 		<input type="text" id="searchId" ng-model="newInterest"/> -->
-	</form>
-	<div id="tweetContainer">
-		<div ng-repeat="x in tweets" class="tweet" id={{x}}></div>
+<div id="header" class="container-fluid row">
+	<div class="col-lg-2">
+	<img src="images/logo.png"/>
 	</div>
-	<button type="button" onClick="render()">render</button>
-	
+	<div class="col-lg-8 title">
+		<h2>Twitter Agregator</h2>
+	</div>
+	<div class="col-lg-2">
+		<h5>Welcome {{profile.username}}</h5>
+		<button type="button" class="btn btn-dark" name="Logout" ng-click="logout()">Logout</button>
+	</div>
 </div>
+
+<div id="content" class="content">
+
+	<div class="page-content" ng-init="init()">
+							
+							<!-- search input -->
+		<div class="row ">
+			<div class="col-lg-4"> </div>
+			<div class="col-lg-4 text-center">
+				<form method="post" class="form-inline" ng-submit="createInterest()">
+					<div class="input-group-prepend ">
+						<select class="form-control col-lg-2" id="interestTypeSelect"
+							ng-model="interestTypeSelect">
+							<option value="#" selected="selected">#</option>
+							<option value="@">@</option>
+						</select> 
+
+<!-- 							<div class="btn-group btn-group-toggle" data-toggle="buttons"> -->
+<!-- 								<label class="btn btn-light active"> -->
+<!-- 									<input type="radio" name="options" ng-model="interestType" value="#"># -->
+<!-- 								</label> -->
+<!-- 								<label class="btn btn-light"> -->
+<!-- 									<input type="radio" name="options" ng-model="interestType" value="@">@ -->
+<!-- 								</label> -->
+<!-- 							</div> -->
+						<input type="text" class="form-control col-md-8 input-lg" id="searchId"
+							ng-model="newInterest" size="40">
+						<button class="btn btn-light col-md-2"
+							style="max-width: initial" type="submit">Agregar</button>
+					</div>
+				</form>
+			</div>
+			<div class="col-lg-4"> </div>
+		</div>
+		<br/>
+			<!-- Interest Labels -->
+					
+					<div class="labelContainer">
+				<button type="button" class="btn btn-default btn-md filter-label"
+					ng-repeat="x in interests">
+					<span ng-if="x.type == 'user'">@</span> <span
+						ng-if="x.type == 'hashtag'">#</span> <span ng-click="search(x)">{{x.name}}</span>
+					<span ng-click="delete(x.id)"> <i class="fa fa-times"
+						aria-hidden="true">x</i>
+					</span>
+				</button>
+				</div>
+		
+		<br/>
+		
+		
+			<!--  Tweets -->
+			
+			
+		<div id="tweetContainer" class="row clearfix">
+			<div ng-repeat="x in tweets" class="tweet" id={{x}}></div>
+		</div>
+		<button type="button" onClick="render()">render</button>
+
+	</div>
