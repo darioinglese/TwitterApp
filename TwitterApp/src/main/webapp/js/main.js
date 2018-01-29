@@ -1,10 +1,3 @@
-'use strict';
-
-var app = angular.module('twitterapp', [
-                                               'ngRoute',
-                                               'appControllers'
-                                               ]);
-
 // configure routes
 app.config(['$routeProvider', function($routeProvider) {
 	$routeProvider.

@@ -71,24 +71,26 @@ appControllers.controller('MainController', ['$rootScope', '$scope', '$http', 'a
 
         }
     	
-    	function render() {
-    		$("#tweetContainer").html('');
-//    	var tweets = $(".tweet");
-    		
-    		$scope.tweets.each( function( t, tweet ) { 
-
-    	    var id = jQuery(this).attr('id');
-    	 
-    	    twttr.widgets.createTweet(
-    	      id, tweet, 
-    	      {
-    	        conversation : 'none',    // or all
-    	        cards        : 'hidden',  // or visible 
-    	        linkColor    : '#cc0000', // default is blue
-    	        theme        : 'light'    // or dark
-    	      }).then(function (el){console.log('Tweet added.')});
-
-    	    });
-    	}
+//    	$scope.render = function(element) {
+//    		
+//    	}
+    	
+//    	function render() {
+//    		$("#tweetContainer").html('');
+//    		var container = $("#tweetContainer");
+//    		
+//    		angular.forEach($scope.tweets, function(value, key) {
+//    			var tweet = '<div id="' + value + '"></div>';
+//    			$("#tweetContainer").append(tweet);
+//    			twttr.widgets.createTweet(
+//    					value, tweet,
+//    					{
+//    		    	        conversation : 'none',    // or all
+//    		    	        cards        : 'hidden',  // or visible
+//    		    	        linkColor    : '#cc0000', // default is blue
+//    		    	        theme        : 'light'    // or dark
+//    		    	      }).then(function (el){console.log('Tweet added.')});
+//    		});	
+//    	}
     }
 ]);
