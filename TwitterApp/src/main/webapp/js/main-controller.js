@@ -13,12 +13,12 @@ appControllers.controller('MainController', ['$rootScope', '$scope', '$http', 'a
                 .then(function (response) {
                     console.log (response);
                     $scope.interests = response.data;
-                });    
+                }); 
+            
         }
 
     	$scope.createInterest = function() {
     		var type = $scope.interestTypeSelect === '@' ? 'user' : 'hashtag';
-//    		var type = $scope.interestType === '@' ? 'user' : 'hashtag';
     		var interest = {
     			'type' : type,
     			'name' : $scope.newInterest

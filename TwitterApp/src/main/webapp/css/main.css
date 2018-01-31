@@ -2,9 +2,13 @@ body {
 	background-image: linear-gradient(to right, #006eb4, #0084b4,#006eb4);
 }
 
+/* .grid-item { width: 200px; } */
+/* .grid-item--width2 { width: 400px; } */
+
 #header {
 	height: 75px;
 	background: white;
+	width:auto;
 }
 #header .title {
 	text-align:center;
@@ -16,6 +20,10 @@ body {
 
 .labelContainer {
 	text-align:center;
+}
+
+.labelContainer .btn{
+	margin-right: 4px;
 }
 
 #tweetContainer div {

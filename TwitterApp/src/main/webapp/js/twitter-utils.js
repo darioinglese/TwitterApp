@@ -16,4 +16,7 @@ var tweets = $(".tweet");
       }).then(function (el){console.log('Tweet added.')});
 
     });
+//	$grid.imagesLoaded().progress( function() {
+//		  $grid.masonry('.grid');
+//		});
 }
