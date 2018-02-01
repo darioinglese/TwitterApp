@@ -3,6 +3,7 @@
 appControllers.controller('MainController', ['$rootScope', '$scope', '$http', 'authorization',
     function($rootScope, $scope, $http, authorization) {
         $scope.profile = authorization.profile;
+        $scope.idPool =[]; 
         
         $scope.logout = function() {
         	authorization.logout();
@@ -16,6 +17,7 @@ appControllers.controller('MainController', ['$rootScope', '$scope', '$http', 'a
                 }); 
             
         }
+        
 
     	$scope.createInterest = function() {
     		var type = $scope.interestTypeSelect === '@' ? 'user' : 'hashtag';
@@ -27,6 +29,7 @@ appControllers.controller('MainController', ['$rootScope', '$scope', '$http', 'a
     			console.log(response);
     			$scope.interest = response.data;
     			addNewInterest($scope.interest);
+    			
     		});
     	}
     	
@@ -35,6 +38,7 @@ appControllers.controller('MainController', ['$rootScope', '$scope', '$http', 'a
     			$scope.interests = [];
     		}
     		$scope.interests.push(interest);
+    		$scope.search(interest);
     	}
     	
     	$scope.delete = function(id) {
@@ -54,32 +58,12 @@ appControllers.controller('MainController', ['$rootScope', '$scope', '$http', 'a
             $http.get(path)
                 .then(function (response) {
                     console.log (response);
-                    $scope.tweets = response.data;
-                    render();
+                    for(var i = 0; i < response.data.length; i++ ) {
+                    	$scope.idPool.push({'interest': interest.name, 'value': response.data[i]});
+                    }
                 });    
 
         }
     	
-//    	$scope.render = function(element) {
-//    		
-//    	}
-    	
-//    	function render() {
-//    		$("#tweetContainer").html('');
-//    		var container = $("#tweetContainer");
-//    		
-//    		angular.forEach($scope.tweets, function(value, key) {
-//    			var tweet = '<div id="' + value + '"></div>';
-//    			$("#tweetContainer").append(tweet);
-//    			twttr.widgets.createTweet(
-//    					value, tweet,
-//    					{
-//    		    	        conversation : 'none',    // or all
-//    		    	        cards        : 'hidden',  // or visible
-//    		    	        linkColor    : '#cc0000', // default is blue
-//    		    	        theme        : 'light'    // or dark
-//    		    	      }).then(function (el){console.log('Tweet added.')});
-//    		});	
-//    	}
     }
 ]);

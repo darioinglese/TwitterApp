@@ -47,7 +47,7 @@
 		<br/>
 			<!-- Interest Labels -->
 					
-					<div class="labelContainer">
+			<div class="labelContainer">
 				<button type="button" class="btn btn-light btn-md filter-label"
 					ng-repeat="x in interests">
 					 <span ng-click="search(x)">
@@ -57,17 +57,12 @@
 						aria-hidden="true"></i>
 					</span>
 				</button>
-				</div>
-		
+			</div>
 		<br/>
 		
-		
 			<!--  Tweets -->
-			
-			
 		<div id="tweetContainer" class="row clearfix grid">
-			<div ng-repeat="x in tweets" class="tweet grid-item" id={{x}}></div>
+			<div ng-repeat="x in idPool" class="tweet grid-item" interest={{x.interest}} id={{x.value}} ng-render></div>
 		</div>
-		<button type="button" onClick="render()">render</button>
 
 	</div>
