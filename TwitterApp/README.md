@@ -1,8 +1,8 @@
-# Authentication with Spring Boot, AngularJS and Keycloak
+# Twitter Agregator
 
-- Make sure to start Keycloak before using the application
+- 
 
-## Run with standalone Tomcat
+
 
 To run the project with embedded Tomcat by maven:
 
