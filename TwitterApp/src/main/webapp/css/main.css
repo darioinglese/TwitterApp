@@ -2,19 +2,17 @@ body {
 	background-image: linear-gradient(to right, #006eb4, #0084b4,#006eb4);
 }
 
-@media (max-width: 992px) {
+@media (max-width: 970px) {
   .greeting {
   	display:none;
   }
 }
-
 
 #header {
 	height: 75px;
 	background: white;
 	width:auto;
 }
-
 
 #header .title {
 	text-align:center;
@@ -30,6 +28,12 @@ body {
 
 .labelContainer .btn{
 	margin-right: 4px;
+}
+
+#tweetContainer {
+	width:90%;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 #tweetContainer div {

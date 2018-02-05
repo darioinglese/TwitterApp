@@ -52,7 +52,7 @@
 		<br/>
 		
 			<!--  Tweets -->
-		<div id="tweetContainer" class="row" masonry="true">
+		<div id="tweetContainer" class="row">
 			<div ng-repeat="x in idPool | orderBy : '-value'" class="tweet" interest={{x.interest}} id={{x.value}} ng-render track by {{x.value}}>
 			</div>
 		</div>

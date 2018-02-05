@@ -1,7 +1,5 @@
 'use strict'
 
-
-
 app.directive('ngRender', ["$compile", function ($compile) {
     return {
         restrict: 'A',
@@ -19,10 +17,10 @@ function render(id) {
 	var tweet = $("#" + id)[0];
 	if (tweet !== undefined) {
 		twttr.widgets.createTweet(id, tweet, {
-			conversation : 'none',
-			cards : 'hidden',
+			conversation : 'none',	//all
+			cards : 'hidden',	//visible
 			linkColor : '#cc0000',
-			theme : 'light'
+			theme : 'light'	//dark
 		}).then(function(er) {
 			console.log('tweet added');
 		});

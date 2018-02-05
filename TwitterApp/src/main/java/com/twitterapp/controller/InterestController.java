@@ -29,6 +29,4 @@ public class InterestController {
 	public List<String> getUserTweets(@PathVariable final String user) {
 		return service.getUserTweets(user, tweetAmount);
 	}
-
-	
 }
