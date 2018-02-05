@@ -15,7 +15,7 @@ import com.twitterapp.service.InterestService;
 @RequestMapping("/interest")
 public class InterestController {
 	
-	private final int tweetAmount = 10;
+	private final int tweetAmount = 5;
 	
 	@Autowired
 	private InterestService service;

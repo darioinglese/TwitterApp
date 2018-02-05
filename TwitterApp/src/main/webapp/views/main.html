@@ -26,17 +26,8 @@
 							<option value="#" selected="selected">#</option>
 							<option value="@">@</option>
 						</select> 
-
-<!-- 							<div class="btn-group btn-group-toggle" data-toggle="buttons"> -->
-<!-- 								<label class="btn btn-light active"> -->
-<!-- 									<input type="radio" name="options" ng-model="interestType" value="#"># -->
-<!-- 								</label> -->
-<!-- 								<label class="btn btn-light"> -->
-<!-- 									<input type="radio" name="options" ng-model="interestType" value="@">@ -->
-<!-- 								</label> -->
-<!-- 							</div> -->
 						<input type="text" class="form-control col-md-8 input-lg" id="searchId"
-							ng-model="newInterest" size="40">
+							ng-model="newInterest" size="40" placeholder="ingresar hashtag o usuario">
 						<button class="btn btn-light col-md-2"
 							style="max-width: initial" type="submit">Agregar</button>
 					</div>
@@ -53,7 +44,7 @@
 					 <span ng-click="search(x)">
 					<span ng-if="x.type == 'user'">@</span> <span
 						ng-if="x.type == 'hashtag'">#</span>{{x.name}}</span>
-					<span ng-click="delete(x.id)"> <i class="fa fa-times"
+					<span ng-click="delete($index)"> <i class="fa fa-times"
 						aria-hidden="true"></i>
 					</span>
 				</button>
@@ -62,7 +53,8 @@
 		
 			<!--  Tweets -->
 		<div id="tweetContainer" class="row clearfix grid">
-			<div ng-repeat="x in idPool" class="tweet grid-item" interest={{x.interest}} id={{x.value}} ng-render></div>
+			<div ng-repeat="x in idPool | orderBy : '-id'" class="tweet grid-item" interest={{x.interest}} id={{x.value}} ng-render track by {{x.value}}>
+			</div>
 		</div>
 
 	</div>
