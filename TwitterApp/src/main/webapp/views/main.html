@@ -1,12 +1,12 @@
 <div id="header" class="container-fluid row">
-	<div class="col-lg-2">
+	<div class="col-sm-2 col-lg-2">
 	<img src="images/logo.png"/>
 	</div>
-	<div class="col-lg-8 title">
+	<div class="col-sm-8 col-lg-8 title">
 		<h2 class="display-4">Twitter Agregator</h2>
 	</div>
-	<div class="col-lg-2">
-		<h5>Welcome {{profile.username}}</h5>
+	<div class="col-sm-2 col-lg-2">
+		<h5 class="greeting">Welcome {{profile.username}}</h5>
 		<button type="button" class="btn btn-dark" name="Logout" ng-click="logout()">Logout</button>
 	</div>
 </div>
@@ -52,8 +52,8 @@
 		<br/>
 		
 			<!--  Tweets -->
-		<div id="tweetContainer" class="row clearfix grid">
-			<div ng-repeat="x in idPool | orderBy : '-id'" class="tweet grid-item" interest={{x.interest}} id={{x.value}} ng-render track by {{x.value}}>
+		<div id="tweetContainer" class="row" masonry="true">
+			<div ng-repeat="x in idPool | orderBy : '-value'" class="tweet" interest={{x.interest}} id={{x.value}} ng-render track by {{x.value}}>
 			</div>
 		</div>
 

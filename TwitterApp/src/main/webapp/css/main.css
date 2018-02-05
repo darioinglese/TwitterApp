@@ -2,14 +2,20 @@ body {
 	background-image: linear-gradient(to right, #006eb4, #0084b4,#006eb4);
 }
 
-/* .grid-item { width: 200px; } */
-/* .grid-item--width2 { width: 400px; } */
+@media (max-width: 992px) {
+  .greeting {
+  	display:none;
+  }
+}
+
 
 #header {
 	height: 75px;
 	background: white;
 	width:auto;
 }
+
+
 #header .title {
 	text-align:center;
 }
@@ -30,11 +36,6 @@ body {
 	margin: 0em 1em 0em 1em; 
 }
 
-
-/* #tweet { */
-/* 	width: 400px !important; */
-/* 	margin: 0em 1em 0em 1em; */
-/* } */
 
 #tweet iframe {
 	border: none !important;
